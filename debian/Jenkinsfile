@@ -5,7 +5,11 @@
 // debian:forky disabled: Forky is still unstable/research-only.
 // The full Debian package ecosystem is not yet available for Forky.
 // Re-enable once the stack builds cleanly for Forky.
-String[] distributions = ['debian:bookworm', 'debian:trixie', 'ubuntu:jammy', 'ubuntu:noble']
+// ubuntu:jammy disabled: jammy's default archive ships nodejs 12.22.9,
+// which cannot satisfy this package's nodejs (>= 18) build-dep/runtime
+// requirement without pulling in a third-party Node repo. Re-enable if/when
+// a suitable nodejs backport is added to jammy for this repo.
+String[] distributions = ['debian:bookworm', 'debian:trixie', 'ubuntu:noble']
 
 String vendor = 'vitexsoftware'
 //String distroFamily = ''
