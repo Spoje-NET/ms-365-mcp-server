@@ -1,0 +1,31 @@
+#!/usr/bin/make -f
+
+export DH_VERBOSE = 1
+
+%:
+	dh $@
+
+override_dh_auto_build:
+	npm ci
+	npm version --no-git-tag-version --allow-same-version \
+	    $(shell dpkg-parsechangelog -S Version | sed 's/-.*//')
+	node bin/generate-graph-client.mjs
+	npm run build
+
+override_dh_auto_install:
+	dh_auto_install
+	rm -rf node_modules
+	npm ci --omit=dev --omit=optional
+	install -d debian/ms-365-mcp-server/usr/share/ms-365-mcp-server
+	cp -r dist node_modules package.json \
+	    debian/ms-365-mcp-server/usr/share/ms-365-mcp-server/
+	install -D -m 755 debian/ms-365-mcp-server.wrapper \
+	    debian/ms-365-mcp-server/usr/bin/ms-365-mcp-server
+	install -D -m 644 debian/ms-365-mcp-server.metainfo.xml \
+	    debian/ms-365-mcp-server/usr/share/metainfo/cz.vitexsoftware.ms-365-mcp-server.metainfo.xml
+	install -D -m 644 debian/ms-365-mcp-server.svg \
+	    debian/ms-365-mcp-server/usr/share/icons/hicolor/scalable/apps/cz.vitexsoftware.ms-365-mcp-server.svg
+
+override_dh_auto_test:
+	appstreamcli validate --pedantic --no-net \
+	    debian/ms-365-mcp-server.metainfo.xml

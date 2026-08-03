@@ -1,0 +1,8 @@
+ms-365-mcp-server (0.136.0-1) UNRELEASED; urgency=low
+
+  * Initial Debian packaging (fork of Softeria/ms-365-mcp-server).
+  * Production npm dependencies vendored under
+    /usr/share/ms-365-mcp-server/node_modules, since most of the
+    upstream Node.js dependency tree is not packaged in Debian.
+
+ -- Vítězslav Dvořák <info@vitexsoftware.cz>  Mon, 03 Aug 2026 09:51:48 +0200

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="console-application">
+  <id>cz.vitexsoftware.ms-365-mcp-server</id>
+  <icon type="stock">cz.vitexsoftware.ms-365-mcp-server</icon>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>MIT</project_license>
+  <name>MS 365 MCP Server</name>
+  <summary>MCP server for Microsoft 365 mail, calendar and to-do tasks</summary>
+  <description>
+    <p>
+      A Model Context Protocol (MCP) server that exposes Microsoft 365
+      through the Microsoft Graph API, letting AI assistants and other
+      MCP-compatible tools work with Outlook mail, calendar and Microsoft
+      To Do tasks. Optional presets also cover OneDrive files, contacts,
+      Excel and Teams.
+    </p>
+    <p>Features include:</p>
+    <ul>
+      <li>Mail: read, search, send and manage Outlook messages</li>
+      <li>Calendar: list, create and update events</li>
+      <li>Microsoft To Do: manage task lists and tasks</li>
+      <li>MSAL authentication (device-code or app credential flow)</li>
+      <li>Tool filtering via presets or Graph scope allowlists</li>
+      <li>Read-only mode for safe browsing</li>
+      <li>Support for both STDIO and HTTP transports</li>
+    </ul>
+  </description>
+  <url type="homepage">https://github.com/Softeria/ms-365-mcp-server</url>
+  <url type="bugtracker">https://github.com/Spoje-NET/ms-365-mcp-server/issues</url>
+  <url type="vcs-browser">https://github.com/Spoje-NET/ms-365-mcp-server</url>
+  <developer id="cz.vitexsoftware">
+    <name>Vítězslav Dvořák</name>
+  </developer>
+  <provides>
+    <binary>ms-365-mcp-server</binary>
+  </provides>
+  <releases>
+    <release version="0.136.0" date="2026-07-30">
+      <description>
+        <p>Initial Debian packaging, forked from Softeria/ms-365-mcp-server.</p>
+      </description>
+    </release>
+  </releases>
+  <content_rating type="oars-1.1"/>
+</component>

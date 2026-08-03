@@ -1,0 +1,2 @@
+#!/bin/sh
+exec /usr/bin/node /usr/share/ms-365-mcp-server/dist/index.js "$@"
